@@ -16,6 +16,13 @@ class MainViewModel (private val getDotaHeroesListUseCase: GetDotaHeroesListUseC
     val dotaHeroesList: LiveData<List<DotaHeroModelDomain>>
         get() = _dotaHeroesList
 
+    private val _loadingPermission = MutableLiveData<Boolean>()
+    val loadingPermission: LiveData<Boolean>
+        get() = _loadingPermission
+
+    init {
+        _loadingPermission.value = true
+    }
 
     fun getDotaHeroes() = liveData(Dispatchers.IO){
         emit(Resource.Loading(data = null))
@@ -30,6 +37,10 @@ class MainViewModel (private val getDotaHeroesListUseCase: GetDotaHeroesListUseC
 
     fun setDotaHeroesList(list: List<DotaHeroModelDomain>){
         _dotaHeroesList.value = list
+    }
+
+    fun changeToFalseLoadingPermission(){
+        _loadingPermission.value = false
     }
 
 }

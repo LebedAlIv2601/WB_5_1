@@ -12,7 +12,7 @@ import com.example.wb_5_1.R
 import com.example.wb_5_1.databinding.MainRvItemBinding
 import com.example.wb_5_1.domain.model.DotaHeroModelDomain
 
-class MainAdapter():
+class MainAdapter(private val onClick:(DotaHeroModelDomain) -> Unit):
     ListAdapter<DotaHeroModelDomain, MainAdapter.MainViewHolder>(DiffCallback()) {
 
     class MainViewHolder(private val binding: MainRvItemBinding) :
@@ -49,7 +49,13 @@ class MainAdapter():
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
-        return MainViewHolder.from(parent)
+        val holder = MainViewHolder.from(parent)
+        holder.itemView.setOnClickListener {
+            if(holder.adapterPosition != RecyclerView.NO_POSITION){
+                getItem(holder.adapterPosition)?.let(onClick)
+            }
+        }
+        return holder
     }
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
