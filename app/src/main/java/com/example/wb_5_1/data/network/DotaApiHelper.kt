@@ -15,7 +15,7 @@ import javax.inject.Inject
 class DotaApiHelper @Inject constructor(private val client: OkHttpClient) {
 
     @ExperimentalStdlibApi
-    fun getDotaHeroes(): List<DotaHeroModelDomain>?{
+    fun getDotaHeroes(): List<DotaHeroModelDomain>? {
         val request = Request.Builder().url(BASE_API + HERO_STATS_QUERY).build()
 
         val result: List<DotaHeroModelDomain>?
@@ -30,7 +30,7 @@ class DotaApiHelper @Inject constructor(private val client: OkHttpClient) {
 
             result = adapter.fromJson(json)?.map { it.toDomain() }
 
-        } catch (e: HttpException){
+        } catch (e: HttpException) {
             return emptyList()
         }
 

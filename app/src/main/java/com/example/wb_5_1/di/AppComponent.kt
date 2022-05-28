@@ -17,7 +17,7 @@ interface AppComponent{
 @Module
 class DataModule{
     @Provides
-    fun getOkHttpClient(): OkHttpClient{
+    fun getOkHttpClient(): OkHttpClient {
         return OkHttpClient()
     }
 }

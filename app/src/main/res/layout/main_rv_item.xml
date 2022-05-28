@@ -17,11 +17,11 @@
 
     <TextView
         android:id="@+id/hero_name_text_view"
+        style="@style/header_text_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Axe"
-        style="@style/header_text_style"
         android:layout_marginStart="16dp"
+        android:text="Axe"
         app:layout_constraintStart_toEndOf="@+id/hero_icon_image_view"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,22 +38,22 @@
 
     <TextView
         android:id="@+id/hero_attack_type_label_text_view"
+        style="@style/text_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Attack type: "
-        style="@style/text_style"
         android:layout_marginTop="8dp"
+        android:text="@string/attack_type_label"
         app:layout_constraintStart_toStartOf="@+id/hero_name_text_view"
         app:layout_constraintTop_toBottomOf="@+id/hero_name_text_view" />
 
     <TextView
         android:id="@+id/hero_attack_type_text_view"
+        style="@style/text_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:text="Ranged"
         android:textStyle="italic"
-        style="@style/text_style"
-        android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/hero_attack_type_label_text_view"
         app:layout_constraintStart_toEndOf="@+id/hero_attack_type_label_text_view"
         app:layout_constraintTop_toTopOf="@+id/hero_attack_type_label_text_view" />

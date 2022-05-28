@@ -12,36 +12,37 @@ import com.example.wb_5_1.R
 import com.example.wb_5_1.databinding.MainRvItemBinding
 import com.example.wb_5_1.domain.model.DotaHeroModelDomain
 
-class MainAdapter(private val onClick:(DotaHeroModelDomain) -> Unit):
+class MainAdapter(private val onClick: (DotaHeroModelDomain) -> Unit) :
     ListAdapter<DotaHeroModelDomain, MainAdapter.MainViewHolder>(DiffCallback()) {
 
     class MainViewHolder(private val binding: MainRvItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: DotaHeroModelDomain){
+        fun bind(item: DotaHeroModelDomain) {
             binding.apply {
                 heroNameTextView.text = item.name
                 heroAttackTypeTextView.text = item.attackType
                 heroPrimaryAttrImageView.setImageResource(
-                when(item.primaryAttr){
-                    "str" -> R.drawable.strength_attribute_symbol
-                    "int" -> R.drawable.intelligence_attribute_symbol
-                    "agi" -> R.drawable.agility_attribute_symbol
-                    else -> R.drawable.strength_attribute_symbol
-                }
+                    when (item.primaryAttr) {
+                        "str" -> R.drawable.strength_attribute_symbol
+                        "int" -> R.drawable.intelligence_attribute_symbol
+                        "agi" -> R.drawable.agility_attribute_symbol
+                        else -> R.drawable.strength_attribute_symbol
+                    }
                 )
-                heroIconImageView.load(BASE_IMAGE_URL + item.icon){
+                heroIconImageView.load(BASE_IMAGE_URL + item.icon) {
                     placeholder(R.drawable.dota_icon)
                 }
             }
         }
 
-        companion object{
-            fun from(parent: ViewGroup): MainViewHolder{
+        companion object {
+            fun from(parent: ViewGroup): MainViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val view = layoutInflater.inflate(
                     R.layout.main_rv_item,
-                    parent, false)
+                    parent, false
+                )
                 return MainViewHolder(MainRvItemBinding.bind(view))
             }
         }
@@ -51,7 +52,7 @@ class MainAdapter(private val onClick:(DotaHeroModelDomain) -> Unit):
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
         val holder = MainViewHolder.from(parent)
         holder.itemView.setOnClickListener {
-            if(holder.adapterPosition != RecyclerView.NO_POSITION){
+            if (holder.adapterPosition != RecyclerView.NO_POSITION) {
                 getItem(holder.adapterPosition)?.let(onClick)
             }
         }
@@ -62,7 +63,7 @@ class MainAdapter(private val onClick:(DotaHeroModelDomain) -> Unit):
         holder.bind(getItem(position))
     }
 
-    private class DiffCallback: DiffUtil.ItemCallback<DotaHeroModelDomain>() {
+    private class DiffCallback : DiffUtil.ItemCallback<DotaHeroModelDomain>() {
         override fun areItemsTheSame(
             oldItem: DotaHeroModelDomain,
             newItem: DotaHeroModelDomain

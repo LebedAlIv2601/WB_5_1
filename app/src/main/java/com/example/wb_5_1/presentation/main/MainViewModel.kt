@@ -10,7 +10,7 @@ import com.example.wb_5_1.domain.model.DotaHeroModelDomain
 import com.example.wb_5_1.domain.usecase.GetDotaHeroesListUseCase
 import kotlinx.coroutines.*
 
-class MainViewModel (private val getDotaHeroesListUseCase: GetDotaHeroesListUseCase): ViewModel() {
+class MainViewModel(private val getDotaHeroesListUseCase: GetDotaHeroesListUseCase) : ViewModel() {
 
     private val _dotaHeroesList = MutableLiveData<List<DotaHeroModelDomain>>()
     val dotaHeroesList: LiveData<List<DotaHeroModelDomain>>
@@ -24,22 +24,22 @@ class MainViewModel (private val getDotaHeroesListUseCase: GetDotaHeroesListUseC
         _loadingPermission.value = true
     }
 
-    fun getDotaHeroes() = liveData(Dispatchers.IO){
+    fun getDotaHeroes() = liveData(Dispatchers.IO) {
         emit(Resource.Loading(data = null))
-        try{
+        try {
             Log.e("Loading", "Trying to load data from vm")
             emit(Resource.Success(data = getDotaHeroesListUseCase.execute()))
             Log.e("Loading", "Data loaded")
-        } catch(e: Exception){
+        } catch (e: Exception) {
             emit(Resource.Error(data = null, message = e.message ?: "Error Occurred!!!"))
         }
     }
 
-    fun setDotaHeroesList(list: List<DotaHeroModelDomain>){
+    fun setDotaHeroesList(list: List<DotaHeroModelDomain>) {
         _dotaHeroesList.value = list
     }
 
-    fun changeToFalseLoadingPermission(){
+    fun changeToFalseLoadingPermission() {
         _loadingPermission.value = false
     }
 

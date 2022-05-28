@@ -53,13 +53,17 @@ class DetailsFragment : Fragment() {
             moveSpeedTextView.text = arguments?.getString("move_speed")
             legsTextView.text = arguments?.getString("legs")
 
-            heroIconDetailsImageView.load(Constants.BASE_IMAGE_URL
-                    + arguments?.getString("icon")) {
+            heroIconDetailsImageView.load(
+                Constants.BASE_IMAGE_URL
+                        + arguments?.getString("icon")
+            ) {
                 placeholder(R.drawable.dota_icon)
             }
 
-            heroImageImageView.load(Constants.BASE_IMAGE_URL
-                    + arguments?.getString("img"))
+            heroImageImageView.load(
+                Constants.BASE_IMAGE_URL
+                        + arguments?.getString("img")
+            )
         }
     }
 

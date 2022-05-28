@@ -74,4 +74,4 @@ data class DotaHeroModelData(
     @Json(name = "legs")
     val legs: Int
 
-    )
+)

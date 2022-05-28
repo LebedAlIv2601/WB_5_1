@@ -107,11 +107,17 @@ class MainFragment : Fragment() {
         heroInfoBundle.putString("base_agi", "${hero.baseAgi.toInt()} + ${hero.agiGain}")
         heroInfoBundle.putString("base_int", "${hero.baseInt.toInt()} + ${hero.intGain}")
         heroInfoBundle.putString("attack_type", hero.attackType)
-        heroInfoBundle.putString("base_health", "${hero.baseHealth.toInt()} + ${hero.baseHealthRegen}")
+        heroInfoBundle.putString(
+            "base_health",
+            "${hero.baseHealth.toInt()} + ${hero.baseHealthRegen}"
+        )
         heroInfoBundle.putString("base_mana", "${hero.baseMana.toInt()} + ${hero.baseManaRegen}")
         heroInfoBundle.putString("base_armor", "${hero.baseArmor.toInt()}")
         heroInfoBundle.putString("base_mr", "${hero.baseMr.toInt()}%")
-        heroInfoBundle.putString("base_damage", "${hero.baseAttackMin.toInt()} - ${hero.baseAttackMax.toInt()}")
+        heroInfoBundle.putString(
+            "base_damage",
+            "${hero.baseAttackMin.toInt()} - ${hero.baseAttackMax.toInt()}"
+        )
         heroInfoBundle.putString("attack_range", "${hero.attackRange.toInt()}")
         heroInfoBundle.putString("move_speed", "${hero.moveSpeed.toInt()}")
         heroInfoBundle.putString("legs", "${hero.legs}")

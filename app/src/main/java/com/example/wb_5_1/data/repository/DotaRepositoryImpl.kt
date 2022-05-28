@@ -6,7 +6,8 @@ import com.example.wb_5_1.domain.repository.DotaRepository
 import javax.inject.Inject
 
 @ExperimentalStdlibApi
-class DotaRepositoryImpl @Inject constructor(private val apiHelper: DotaApiHelper): DotaRepository {
+class DotaRepositoryImpl @Inject constructor(private val apiHelper: DotaApiHelper) :
+    DotaRepository {
 
     override suspend fun getDotaHeroes(): List<DotaHeroModelDomain> {
         return apiHelper.getDotaHeroes() ?: emptyList()

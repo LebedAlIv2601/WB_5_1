@@ -3,4 +3,14 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="main_fragment_toolbar_title">Dota 2 Heroes</string>
+    <string name="attack_type_label">Attack type:</string>
+    <string name="attack_type_label_details">Attack type:</string>
+    <string name="base_health_label">Base Health:</string>
+    <string name="base_mana_label">Base Mana:</string>
+    <string name="base_armor_label">Base Armor:</string>
+    <string name="base_magic_resistance_label">Base Magic Resistance:</string>
+    <string name="damage_label">Damage:</string>
+    <string name="attack_range_label">Attack Range:</string>
+    <string name="move_speed_label">Move Speed:</string>
+    <string name="legs_label">Legs:</string>
 </resources>

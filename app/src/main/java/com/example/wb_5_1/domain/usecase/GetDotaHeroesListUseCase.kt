@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 class GetDotaHeroesListUseCase @Inject constructor(private val repository: DotaRepository) {
 
-    suspend fun execute(): List<DotaHeroModelDomain>{
+    suspend fun execute(): List<DotaHeroModelDomain> {
         return repository.getDotaHeroes()
     }
 }
